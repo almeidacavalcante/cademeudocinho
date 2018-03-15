@@ -21,6 +21,7 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuardService } from "./auth-guard/auth-guard.service";
+import { UserService } from "./services/user/user.service";
 
 
 @NgModule({
@@ -57,7 +58,7 @@ import { AuthGuardService } from "./auth-guard/auth-guard.service";
       {path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuardService]}
     ])
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
