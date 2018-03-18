@@ -13,4 +13,4 @@ export const environment = {
     storageBucket: "cademeudocinho-app.appspot.com",
     messagingSenderId: "395162281392"
   }
-};
+}
