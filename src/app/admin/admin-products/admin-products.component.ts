@@ -2,6 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductService } from '../../services/product/product.service';
 import { Subscription } from 'rxjs/Subscription';
 import { Product } from "./../../models/product";
+import * as $ from 'jquery';
+import { datatables } from "datatables.net";
+
 
 @Component({
   selector: 'app-admin-products',
@@ -9,6 +12,7 @@ import { Product } from "./../../models/product";
   styleUrls: ['./admin-products.component.css']
 })
 export class AdminProductsComponent implements OnInit, OnDestroy {
+
   subscription: Subscription;
   products: Product[];
   filteredProducts: any[];
@@ -16,6 +20,12 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
   constructor(private produtctService: ProductService) { 
     this.subscription = this.produtctService.getAll()
       .subscribe(products => this.filteredProducts = this.products = products)
+  }
+
+  applyDataTable(){
+    $(document).ready(function() {
+      $('#productsTable').DataTable();
+    });
   }
 
   filter(query: string){
@@ -29,6 +39,6 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.applyDataTable()
   }
-
 }

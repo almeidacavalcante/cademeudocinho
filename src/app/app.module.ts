@@ -7,6 +7,8 @@ import { RouterModule, Router } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { FormsModule } from "@angular/forms";
 import { CustomFormsModule } from "ng2-validation";
+import * as $ from 'jquery'
+import { datatables } from "datatables.net";
 
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
