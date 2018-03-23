@@ -22,12 +22,6 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
       .subscribe(products => this.filteredProducts = this.products = products)
   }
 
-  applyDataTable(){
-    $(document).ready(function() {
-      $('#productsTable').DataTable();
-    });
-  }
-
   filter(query: string){
     this.filteredProducts = (query) ?
       this.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase())) :
@@ -39,6 +33,5 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.applyDataTable()
   }
 }

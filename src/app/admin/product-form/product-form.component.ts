@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CategoryService } from '../../services/category/category.service';
 import { ProductService } from '../../services/product/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/take'
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-product-form',
@@ -12,7 +13,7 @@ import 'rxjs/add/operator/take'
 export class ProductFormComponent implements OnInit {
   //Creating an Observable Category List
   categories$
-  product = {};
+  product = {}
   id;
 
   //Injectin the category Service on the constructor

@@ -21,14 +21,9 @@
     </div>
     <div class="col-9">
       <div class="card-columns">
-        <div *ngFor="let p of filteredProducts" class="card">
-          <img class="card-img-top" [src]="p.imageUrl" alt="Card image cap">
-          <div class="card-body">
-            <b class="card-title">{{p.title}}</b>
-            <p class="card-text">{{ p.price | currency:'BRL':true}}</p>
-            <button class="btn btn-primary btn-block">Adicionar ao Carrinho</button>
-          </div>
-        </div>
+        <ng-container *ngFor="let p of filteredProducts">
+          <product-card [product]="p"></product-card>
+        </ng-container>
       </div>
     </div>
   </div>
