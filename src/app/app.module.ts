@@ -30,6 +30,7 @@ import { CategoryService } from "./services/category/category.service";
 import { AdminAuthGuardService } from './services/admin-auth-guard/admin-auth-guard.service';
 import { ProductService } from "./services/product/product.service";
 import { ProductCardComponent } from './product-card/product-card.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { ProductCardComponent } from './product-card/product-card.component';
     AdminOrdersComponent,
     LoginComponent,
     ProductFormComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    AboutComponent
   ],
   imports: [
     CustomFormsModule,
@@ -61,6 +63,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
       {path: 'products', component: ProductsComponent },
       {path: 'shopping-cart', component: ShoppingCartComponent },
       {path: 'login', component: LoginComponent},
+      {path: 'about', component: AboutComponent},
 
       {path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService]},
       {path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuardService]},

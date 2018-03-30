@@ -1,3 +1,13 @@
 .pointer {
     cursor: pointer;
 }
+
+.navbar {
+    height: 80px;
+    background: white
+}
+
+.s-font a{
+    font-size: 10pt;
+    color: black;
+}
