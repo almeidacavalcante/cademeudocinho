@@ -119,6 +119,12 @@ h1 {
         padding-left: 0px;
     }
 
+.revealer-container{
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: all 0.3s ease-in-out;
+}
+
 .revealer {
     padding: 100px 0;
     border-radius: 50%;
@@ -132,7 +138,17 @@ h1 {
         background-attachment: fixed;
     position: relative;
     overflow: hidden;
+
+
 }
+
+    .revealer-container.is-showing{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+
+
     .revealer .window-tint{
         background: rgba(0, 0, 0, 0.6);
         position: absolute;
@@ -161,4 +177,69 @@ h1 {
             font-size: 15px;
             font-style: italic;
             color: rgba(255, 255, 255, 0.6)
+        }
+
+        .revealer .window-tint .promo-text a {
+            margin-top: 10px;
+            position: relative;
+            color: white;
+            font-weight: 500;
+            font-size: 15px;
+            border: 1px solid white;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        .revealer .window-tint .promo-text a:hover {
+            background-color: white;
+            color: black;
+        }
+/* POSTS */
+
+.blog-posts{
+    margin-top: 50px;
+
+
+}
+    .blog-posts .post{
+        background: white;
+        width: 200px;
+        height: auto;
+        border: 1px solid #e1e1e1;
+        padding: 10px 10px 0;
+        margin: 10px;
+        position: relative;
+    }
+
+    .blog-posts img{
+        width: inherit;
+        height: auto;
+    }
+
+    .post .button{
+        margin-top: 10px;
+        position: relative;
+        color: #aaa;
+        font-weight: 500;
+        font-size: 15px;
+        border: 1px solid #aaa;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+
+    .post .button:hover{
+        color: white;
+        background: black;
+    }
+
+        .blog-posts .post-1 {
+            transform: translate(-100px 20px);
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .blog-posts .post-3 {
+            transform: translate(100px 20px);
+            opacity: 1;
+            z-index: 2;
         }
