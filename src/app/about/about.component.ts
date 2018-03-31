@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as $ from 'jquery';
 
 @Component({
@@ -6,20 +6,41 @@ import * as $ from 'jquery';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  constructor() {   
+    this.setupParallax()
+    this.alternateNavBar() 
+  }
 
   ngOnInit() {
 
-    this.setupParallax()
+  }
 
+  ngOnDestroy(){
+
+  }
+
+  alternateNavBar(){
+    $(window).scroll(function (){
+      var wScroll = $(this).scrollTop()
+      if($('.navbar').offset().top > $('.bird-box').offset().top){
+        $('.navbar').addClass('change-state')
+        if($('.navbar').offset().top > $('.bird-box').offset().top + $('.bird-box').height()-45){
+          $('.navbar').removeClass('change-state')
+        }
+      }else{
+        $('.navbar').removeClass('change-state')
+      }
+    })
   }
 
 
   setupParallax() {
     
+
     $(window).scroll(function () {
+
       var wScroll = $(this).scrollTop()
       let partOfTheWindow = (windowHeight() / 1.2)
 
@@ -71,14 +92,14 @@ export class AboutComponent implements OnInit {
           timeAnimation('.col-container figure', 6, 'is-showing')
         }
       } catch (error) {
-        console.log(error);
+
       }
     }
 
     function setupHeaderParallax(wScroll){
       transDiv('.back-bird', wScroll / 22);
       transDiv('.logo', wScroll / 1.75);
-      transDiv('.fore-bird', wScroll / 33);
+      transDiv('.fore-bird', -wScroll / 33);
     }
 
     function timeAnimation(cssClass, lt, noDotCssClass) {
@@ -110,8 +131,6 @@ export class AboutComponent implements OnInit {
     function windowHeight() {
       return $(window).height()
     }
-
-
   }
 }
 

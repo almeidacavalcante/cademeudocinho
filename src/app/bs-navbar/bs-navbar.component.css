@@ -3,11 +3,29 @@
 }
 
 .navbar {
-    height: 80px;
-    background: white
+    height: 60px;
+    background: white;
+    transition: all 0.2s ease-in-out
+}
+
+nav{
+    height: auto;
 }
 
 .s-font a{
     font-size: 10pt;
     color: black;
+}
+
+.decoration {
+    border-bottom: 1px solid #e1e1e1
+}
+
+.change-state{
+    background: rgba(00, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.change-state a{
+    color: white
 }

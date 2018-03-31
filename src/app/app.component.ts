@@ -21,6 +21,8 @@ export class AppComponent {
         router.navigateByUrl(returnUrl);
       }
     })
+
+    //Put the scroll on the top of the page when ou router around
     router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
         return;

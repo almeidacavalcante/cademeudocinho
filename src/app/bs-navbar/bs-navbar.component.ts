@@ -16,9 +16,13 @@ export class BsNavbarComponent {
   constructor(
     private router: Router,
     private auth: AuthService) {
+
     auth.appUser$.subscribe(appUser => this.appUser = appUser);
     this.smoothScroll();
   }
+
+
+
 
   logout() {
     this.auth.logout()
