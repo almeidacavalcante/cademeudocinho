@@ -13,7 +13,7 @@ import { Product } from '../../models/product';
 export class ProductFormComponent implements OnInit {
   //Creating an Observable Category List
   categories$
-  product = {}
+  product: Product
   id;
 
   //Injectin the category Service on the constructor

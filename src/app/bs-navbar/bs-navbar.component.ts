@@ -18,7 +18,7 @@ export class BsNavbarComponent {
     private auth: AuthService) {
 
     auth.appUser$.subscribe(appUser => this.appUser = appUser);
-    this.smoothScroll();
+    //this.smoothScroll();
   }
 
 

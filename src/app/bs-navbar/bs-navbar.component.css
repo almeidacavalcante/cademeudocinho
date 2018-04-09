@@ -5,11 +5,13 @@
 .navbar {
     height: 60px;
     background: white;
-    transition: all 0.2s ease-in-out
+    transition: all 0.3s ease-in;
+    padding: 0px 0px
 }
 
 nav{
     height: auto;
+
 }
 
 .s-font a{

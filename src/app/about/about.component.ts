@@ -4,29 +4,45 @@ import * as $ from 'jquery';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+  styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit, OnDestroy {
 
   constructor() {   
     this.setupParallax()
     this.alternateNavBar() 
+
   }
 
   ngOnInit() {
-
+    $(".wrapper").hover(
+      function () {
+          $(this).parent().removeClass('out').addClass('in');
+          $(this).removeClass('overlay-animation-out');
+          $(this).addClass('overlay-animation');
+      },
+      function () {
+          $(this).parent().removeClass('in').addClass('out');
+          $(this).removeClass('overlay-animation');
+          $(this).addClass('overlay-animation-out');
+      }
+  );
   }
 
   ngOnDestroy(){
 
   }
 
+  setupCardFx(){
+
+  }
+
   alternateNavBar(){
     $(window).scroll(function (){
       var wScroll = $(this).scrollTop()
-      if($('.navbar').offset().top > $('.bird-box').offset().top){
+      if($('.navbar').offset().top > $('.bird-box').offset().top+60){
         $('.navbar').addClass('change-state')
-        if($('.navbar').offset().top > $('.bird-box').offset().top + $('.bird-box').height()-45){
+        if($('.navbar').offset().top > $('.bird-box').offset().top + $('.bird-box').height()-60){
           $('.navbar').removeClass('change-state')
         }
       }else{
@@ -51,17 +67,17 @@ export class AboutComponent implements OnInit, OnDestroy {
     })
 
     function setupBlogPostsAnimation(wScroll){
-      if (wScroll > (offsetTop('.blog-posts') - windowHeight())) {
+      if (wScroll > (offsetTop('.blog-container') - windowHeight())) {
 
-        var relativeScroll = wScroll - offsetTop('.blog-posts') + windowHeight() - 300
+        var relativeScroll = wScroll - offsetTop('.blog-container') + windowHeight() - 300
         var offset = Math.min(0, relativeScroll)
 
-        var opacity = (wScroll - offsetTop('.blog-posts') + windowHeight()) / (wScroll / 11)
+        var opacity = (wScroll - offsetTop('.blog-container') + windowHeight()) / (wScroll / 11)
 
         $('.post-1').css({ 'opacity': opacity })
         $('.post-3').css({ 'opacity': opacity })
-        translateDiv('.post-1', (offset / 4), 'px', offset / 3, 'px')
-        translateDiv('.post-3', Math.abs(offset / 4), 'px', offset / 3, 'px')
+        translateDiv('.post-1', (-offset / 2), 'px', 0, 'px')
+        translateDiv('.post-3', (offset / 2), 'px', 0, 'px')
       }
     }
 
@@ -97,6 +113,29 @@ export class AboutComponent implements OnInit, OnDestroy {
     }
 
     function setupHeaderParallax(wScroll){
+
+      var rate = (wScroll - $('.bird-box .overlay').offset().top)/wScroll
+      console.log(rate);
+      
+      $('.bird-box').css({
+        'background-size' : ((wScroll/7)+540) +'px '+ +'auto' ,
+        'background-position' : wScroll/9+'px',
+      })
+
+      $('.bird-box .overlay').css({
+        'background-color': 'rgba(0,0,0,'+rate/1.5+')'
+      })
+
+      $('.fore-bird').css({
+        'background-size' : 'auto ' + ((540+wScroll/4)) +'px',
+        'background-position' : wScroll/6+'px'
+      })
+
+      $('.back-bird').css({
+        'background-size' : 'auto ' + ((200+wScroll/4)) +'px',
+        'background-position' : wScroll/6+'px'
+      })
+
       transDiv('.back-bird', wScroll / 22);
       transDiv('.logo', wScroll / 1.75);
       transDiv('.fore-bird', -wScroll / 33);
@@ -116,7 +155,7 @@ export class AboutComponent implements OnInit, OnDestroy {
 
     function translateDiv(cssClass, hRate, hUnit, vRate, vUnit) {
       $(cssClass).css({
-        'transform': 'translate(' + hRate + hUnit + ', ' + vRate + vUnit + ')'
+        'transform': 'translate(' + hRate + hUnit + ', ' + vRate + vUnit + ')',
       })
     }
 
