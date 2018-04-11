@@ -1,0 +1,35 @@
+[debug] [2018-04-11T01:12:24.965Z] ----------------------------------------------------------------------
+[debug] [2018-04-11T01:12:24.967Z] Command:       /usr/bin/node /usr/bin/firebase deploy
+[debug] [2018-04-11T01:12:24.968Z] CLI Version:   3.17.6
+[debug] [2018-04-11T01:12:24.968Z] Platform:      linux
+[debug] [2018-04-11T01:12:24.968Z] Node Version:  v8.9.4
+[debug] [2018-04-11T01:12:24.968Z] Time:          Tue Apr 10 2018 22:12:24 GMT-0300 (-03)
+[debug] [2018-04-11T01:12:24.968Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-04-11T01:12:25.002Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-04-11T01:12:25.003Z] > authorizing via signed-in user
+[debug] [2018-04-11T01:12:25.005Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-04-11T01:12:25.005Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/Q2LryKNIo4SJsKVDQ5kBYQlI_QZuazrcRBTxQazIbt8',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Tue Apr 10 2018 22:12:25 GMT-0300 (-03)
+[debug] [2018-04-11T01:12:25.610Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-11T01:12:25.656Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/cademeudocinho-app  
+  
+ Tue Apr 10 2018 22:12:25 GMT-0300 (-03)
+[debug] [2018-04-11T01:12:26.854Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-11T01:12:26.855Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/cademeudocinho-app/tokens  
+  
+ Tue Apr 10 2018 22:12:26 GMT-0300 (-03)
+[debug] [2018-04-11T01:12:29.355Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'cademeudocinho-app'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing dist directory for upload...
+[debug] [2018-04-11T01:12:31.558Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/cademeudocinho-app/uploads/-L9mFi929XdJQ8iRD3Y2?fileCount=49&message=  
+  
+ Tue Apr 10 2018 22:12:31 GMT-0300 (-03)

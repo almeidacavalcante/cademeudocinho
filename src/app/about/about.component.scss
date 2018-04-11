@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
-
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One|Herr+Von+Muellerhoff);
 $regal-blue: #034378;
 $san-juan: #2d4e68;
 $bermuda: #77d7b9;
@@ -43,25 +43,26 @@ body {
 
 .bird-box {
     position: relative;
-    height: 500px;
+    height: 400px;
     width: 100%;
-
-    background-image: url("/assets/bird-bg.jpg");
-    background-size: auto 600px;
+    background-image: url("/assets/wall3.jpg");
+    background-size: 100%;
     background-attachment: fixed;
-    background-position: 0px center;
+    background-position: 0px -200px;
+    
     overflow: hidden;
 }
 
-.bird-box .overlay{
-    height: inherit;
-    width: inherit;
+.bird-box .fixed-overlay{
+    height: calc(100% + 40px);
+    width: 100%;
+    position: relative;
+    background: rgba($color: #000000, $alpha: 0.1)
 }
 
 .back-bird {
     height: 264px;
     width: 298px;
-    
     background-image: url('/assets/back-bird.png');
     background-repeat: no-repeat;
     background-size: auto 200px; 
@@ -127,13 +128,15 @@ h1 {
     display: block;
     margin-right: 10px;
     margin-top: 10px;
+    text-align: center;
 }
     .col-container img{
         width: auto;
         height: 350px; 
         object-fit:scale-down;
         display: block;
-        transition: all 0.2s ease-in-out
+        transition: all 0.2s ease-in-out;
+        margin: 0 auto;
     }
 
 .col-container figure {
@@ -142,6 +145,7 @@ h1 {
     transition: all 0.2s ease-in-out; 
     opacity: 0;
     transform: translateX(30px); 
+    text-align: center;
 
 }
     .col-container figure.is-showing {
@@ -687,72 +691,170 @@ h1 {
     }
 
     
-
-/* POSTS */
-/* 
-.blog-posts{
-    background-image: url('/assets/wide.jpg');
-    background-attachment: fixed;
-    background-repeat: repeat-x;
-    background-size: auto 100%;
-    width: 100%;
-    height: auto;
+// Welcome
+.center{
     position: relative;
-}
-
-    .row {
-        margin: 0;
-    }
     
-    .blog-posts .container{
-        height: auto;
-        text-align: center;
-        position: relative;
-        display: block
+    top: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    
+    width: 100%;
+    height: 300px;
+    
+    text-align: center;
+  }
+  
+  .first-headline {
+    font-family: Garamond;
+    font-style: italic;
+    position: relative;
+    color: white;
+    font-size: 35px;
+    font-weight: 400;
+    z-index: 1;
+    margin: 0;
+    letter-spacing: 2px;
+    opacity: 0;
+    transform: translatey(20px);
+    transition: all 0.5s ease-out;
+  }
+  
+  .seccond-headline{
+    position: relative;
+    font-family: "Herr Von Muellerhoff", Palatino, serif;
+    font-size: 70px;
+    font-weight: normal;
+    letter-spacing: 0;
+    padding: 0 72px;
+    margin: -25px -19px;
+    color: #c59d5f;
+    transform: translatey(30px);
+    opacity: 0;
+    display: block;
+    transition: all 0.5s ease-out;
+    transition-delay: 0.5s;
+  }
+  
+  .seccond-headline .first-letter{
+    position: relative;
+    top: 10px;
+    font-size: 1.22em;
+    padding-left: 72px;
+    margin: 0 -72px;
+    letter-spacing: 72px;
+  }
+  
+  #asterisk{
+    color:  #c59d5f;
+    position: relative;
+    opacity: 0;
+    
+    margin: 0;
+    font-size: 12px;
+    transition: all 0.2s ease-out;
+    transition-delay: 0.8s;
+  }
+  
+  @keyframes spin {
+      from {
+          transform:rotate(0deg);
+      }
+      to {
+          transform:rotate(360deg);
+      }
+  }
+  
+  
+  .division{
+    position: relative;
+    width: 1px;
+    height: 3px;
+    bottom: 3px;
+    background: white;
+    display: inline-block;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    transition-delay: 1.0s;
+  }
+  
+  .center .bottom {
+    position: relative;
+    font-family: Helvetica;
+    display: block;
+    color: white;
+    font-size: 11px;
+    opacity: 0;
+    bottom: 3px;
+    transform: translatey(-10px);
+    transition: all 0.3s ease-out;
+    transition-delay: 1.3s;
+  }
+  
+  // Button 02
+  .readme-btn2 {
+    bottom: 5px;
+    background: rgba(255,255,255,1);
+    display: inline-block;
+    padding: 6px 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 11px;
+    font-weight: 100;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+    border: 0px;
+    transition: all 0.2s ease-in-out;
+    &:hover{
+      background: #c59d5f;
+      color: white;
+      border: 0px;
+      border-radius: 2px;
+      
     }
-
-    .blog-posts .post{
-        background: white;
-        width: 200px;
-        height: auto;
-        border: 1px solid #e1e1e1;
-        padding: 10px 10px 0;
-        margin: 10px;
-        float: left;
-        position: relative;
-    }
-
-    .blog-posts img{
-        width: inherit;
-        height: auto;
-    }
-
-    .post .button{
-        margin-top: 10px;
-        position: relative;
-        color: #aaa;
-        font-weight: 500;
-        font-size: 15px;
-        border: 1px solid #aaa;
-        padding: 8px 16px;
-        text-decoration: none;
-    }
-
-    .post .button:hover{
-        color: white;
-        background: black;
-    }
-
-        .blog-posts .post-1 {
-            transform: translate(-100px 20px);
-            opacity: 1;
-            z-index: 1;
-        }
-
-        .blog-posts .post-3 {
-            transform: translate(100px 20px);
-            opacity: 1;
-            z-index: 2;
-        } */
-
-        
+  }
+  
+  .center:hover .first-headline{
+      letter-spacing: 0px;
+      opacity: 1;
+      transform: translatey(0px)
+  }
+  
+  .center:hover .seccond-headline{
+    opacity: 1;
+    transform: translatey(0px);
+    transform: translatex(-4px)
+  }
+  
+  .center:hover #asterisk{
+    animation: spin;
+    animation-duration: 900ms;
+    animation-iteration-count: 1;
+    animation-delay: 0.6s;
+    animation-timing-function: cubic-bezier(.85,-0.41,.66,1.45);
+    // animation-timing-function: cubic-bezier(0.2, 1, 0.1, 1.5);
+    opacity: 1; 
+  }
+  
+  
+  
+  .center:hover .division{
+      background: white;
+      height: 2px;
+      width: 80px;
+      position: relative;
+      display: inline-block;
+      opacity: 1;
+  
+  }
+  .center:hover .bottom{
+      display: block;
+      position: relative;
+      opacity: 1;
+      transform: translatey(0px);
+  
+  }
+  

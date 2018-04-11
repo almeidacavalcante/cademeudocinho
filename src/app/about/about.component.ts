@@ -26,7 +26,9 @@ export class AboutComponent implements OnInit, OnDestroy {
           $(this).removeClass('overlay-animation');
           $(this).addClass('overlay-animation-out');
       }
-  );
+    );
+
+    $('.first-headline').addClass('is-shown');
   }
 
   ngOnDestroy(){
@@ -114,12 +116,12 @@ export class AboutComponent implements OnInit, OnDestroy {
 
     function setupHeaderParallax(wScroll){
 
-      var rate = (wScroll - $('.bird-box .overlay').offset().top)/wScroll
+      var rate = (wScroll - $('.bird-box').offset().top)/wScroll
       console.log(rate);
       
       $('.bird-box').css({
-        'background-size' : ((wScroll/7)+540) +'px '+ +'auto' ,
-        'background-position' : wScroll/9+'px',
+        'background-position': '0px ' + (-(wScroll/2)-200) +'px',
+        'background-size' : '100%'
       })
 
       $('.bird-box .overlay').css({
